@@ -1,0 +1,154 @@
+
+:root {
+  --l: 40px;
+  --p_h_l: calc(var(--l) / 2);
+  --n_h_l: calc(calc(var(--l) / 2) - var(--l));
+  
+}
+/*
+
+      --l = length
+      --p_h_l = positiv half length
+      --n_h_l = negativ half length
+  */
+html {
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+
+body {
+  color: #001155;
+  background-color: #c3ddff;
+  padding: 48px;
+}
+
+a {
+  text-decoration: none;
+  color: #001155;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  word-break: break-word;
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 1;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1;
+}
+
+p {
+  margin: 12px 0;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.header-button {
+  display: flex;
+  flex-direction: column;
+  min-width: 75px;
+  min-height: 75px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.page-body {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  height: 100%;
+  margin-top: -120px;
+  padding-bottom: 48px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.spinningbox {
+  position: relative;
+  width: var(--l);
+  height: var(--l);
+  background-color: transparent;
+  transform-style: preserve-3d;
+  transform: rotateX(30deg) rotateY(45deg);
+  animation: rotateCube 45s linear infinite;
+}
+@keyframes rotateCube {
+  50% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+.side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+.side:hover {
+  opacity: 0.2;
+  filter: none;
+}
+.front {
+  background: rgb(255, 153, 170);
+  transform: translateZ(var(--p_h_l));
+}
+.back {
+  background: rgb(0, 0, 255);
+  transform: translateZ(var(--n_h_l));
+}
+.right {
+  background: rgb(0, 255, 0);
+  transform: rotateY(90deg) translateZ(var(--p_h_l));
+}
+.left {
+  background: #8efdff;
+  transform: rotateY(90deg) translateZ(var(--n_h_l));
+}
+.top {
+  background: rgb(187, 82, 248);
+
+  transform: rotateX(90deg) translateZ(var(--p_h_l));
+}
+.bottom {
+  background: rgb(122, 0, 132);
+
+  transform: rotateX(90deg) translateZ(var(--n_h_l));
+}
